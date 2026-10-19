@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <ul><h1>Menu</h1>
+    <li><a href="{% url 'lows' %}" style="text-decoration:none">Low Inventory Books</a></li><br>
+    <li><a href="{% url 'books' %}" style="text-decoration:none">Member Borrowed Books</a></li><br>
+    <li><a href="{% url 'lend' %}" style="text-decoration:none">Lend Book</a></li><br>
+    <li><a href="{% url 'fine' %}" style="text-decoration:none">Calculate Fine</a></li><br>
+    <li><a href="{% url 'return' %}" style="text-decoration:none">Return Books</a></li><br>
+    <li><a href="{% url 'add' %}" style="text-decoration:none">Add Books</a></li><br>
+    </ul>
+    {% comment %} <a href="{% url 'update'  %}">Calculate Fine</a> {% endcomment %}
+</body>
+</html>

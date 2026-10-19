@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Members and Borrowed Books</title>
+</head>
+<body>
+    <h1>Members and Borrowed Books</h1>
+    <table>
+        <tr>
+            <th>(Member Name)</th>
+            <th>(Book Title)</th>
+            <th>(Borrow Date)</th>
+            <th>(Due Date)</th>
+        </tr>
+        {% for member in members %}
+            {% for borrow in member.borrow_set.all %}
+            <tr>
+                <td>({{ member }})</td>
+                <td>({{ borrow.book }})</td>
+                <td>({{ borrow.borrow_date }})</td>
+                <td>({{ borrow.due_date }})</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

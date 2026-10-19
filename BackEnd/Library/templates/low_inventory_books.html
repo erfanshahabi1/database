@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Low Inventory Books</title>
+</head>
+<body>
+    <h1>Books with Low Inventory</h1>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} - {{ book.inventory }} left</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
