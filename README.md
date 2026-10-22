@@ -15,6 +15,12 @@ A university coursework project exploring library operations through relational 
 ## Database Design
 The SQL Server script defines tables for **books, members, authors, publishers, employees, librarians, managers, cleaners, membership status, and activity logs**. Primary and foreign keys model relationships between library records.
 
+### Entity–Relationship Diagram (EERD)
+
+The database was conceptually modeled using an Enhanced Entity–Relationship Diagram (EERD), illustrating key entities, attributes, relationships, and specialization hierarchies within the library management system.
+
+![Library Management System EERD](images/library-management-system-eerd.png)
+
 **SQL views:** `View book` (books with fewer than five available copies), `View member` (member information), `View_logbook` (book activity logs), and `View_logmember` (member activity logs).
 
 **Database logic:** `CalculateDebt` functions calculate a date-based debt amount; `len` and `lend` stored procedures update book/member records during lending. The script also includes table constraints and database configuration statements.
