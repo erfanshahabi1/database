@@ -19,7 +19,6 @@ The SQL Server script defines tables for **books, members, authors, publishers, 
 
 The database was conceptually modeled using an Enhanced Entity–Relationship Diagram (EERD), illustrating key entities, attributes, relationships, and specialization hierarchies within the library management system.
 
-![Library Management System EERD](eerd.png)
 
 **SQL views:** `View book` (books with fewer than five available copies), `View member` (member information), `View_logbook` (book activity logs), and `View_logmember` (member activity logs).
 
