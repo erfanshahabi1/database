@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Registration</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .container { max-width: 400px; margin: auto; padding: 20px; }
+  input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  button { background-color: #5cb85c; color: white; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Library Registration Form</h2>
+  <form id="registrationForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="text" id="address" placeholder="Address" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <button type="submit">Register</button>
+  </form>
+</div>
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event){
+  event.preventDefault();
+
+  // Collect form data
+  var formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+    address: document.getElementById('address').value,
+    phone: document.getElementById('phone').value
+  };
+
+  // Simple validation (for demonstration purposes)
+  if(formData.name && formData.email && formData.password && formData.address && formData.phone) {
+    // Send data to the server
+    // For demonstration, we'll just log to the console
+    console.log('Form Data:', formData);
+
+    // You would typically send the data using an AJAX request
+    // Here's an example using the Fetch API
+    /*
+    fetch('your-server-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      alert('Registration Successful!');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    */
+
+    // For now, we'll just show a success message
+    alert('Registration Successful!');
+  } else {
+    // If validation fails, alert the user
+    alert('Please fill in all fields.');
+  }
+});
+</script>
+</body>
+</html>

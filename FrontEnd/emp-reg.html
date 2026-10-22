@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Registration - Library System</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .registration-container { max-width: 400px; margin: auto; padding: 20px; }
+  input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  button { background-color: #4CAF50; color: white; }
+</style>
+</head>
+<body>
+<div class="registration-container">
+  <h2>Employee Registration</h2>
+  <form id="employeeRegistrationForm">
+    <input type="text" id="employeeName" placeholder="Full Name" required>
+    <input type="email" id="employeeEmail" placeholder="Email" required>
+    <input type="password" id="employeePassword" placeholder="Password" required>
+    <input type="text" id="employeePosition" placeholder="Position" required>
+    <button type="submit">Register</button>
+  </form>
+</div>
+<script>
+document.getElementById('employeeRegistrationForm').addEventListener('submit', function(event){
+  event.preventDefault();
+  
+  // Get the form data
+  var employeeName = document.getElementById('employeeName').value;
+  var employeeEmail = document.getElementById('employeeEmail').value;
+  var employeePassword = document.getElementById('employeePassword').value;
+  var employeePosition = document.getElementById('employeePosition').value;
+  
+  // Validate the form data here (optional)
+  
+  // Prepare the data to be sent to the server
+  var formData = {
+    name: employeeName,
+    email: employeeEmail,
+    password: employeePassword,
+    position: employeePosition
+  };
+  
+  // Send the data to the server using fetch API
+  fetch('/register-employee', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.success) {
+      // Handle success
+      alert('Employee Registered Successfully!');
+    } else {
+      // Handle failure
+      alert('Registration Failed: ' + data.message);
+    }
+  })
+  .catch(error => {
+    // Handle network errors
+    console.error('Error:', error);
+  });
+});
+</script>
+</body>
+</html>

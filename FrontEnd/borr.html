@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borrow Books</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .borrow-container { max-width: 500px; margin: auto; padding: 20px; }
+  input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  button { background-color: #4CAF50; color: white; }
+</style>
+</head>
+<body>
+<div class="borrow-container">
+  <h2>Borrow a Book</h2>
+  <form id="borrowForm">
+    <input type="text" id="bookTitle" placeholder="Book Title" required>
+    <input type="text" id="authorName" placeholder="Author Name" required>
+    <input type="text" id="isbn" placeholder="ISBN Number" required>
+    <input type="text" id="memberId" placeholder="Member ID" required>
+    <button type="submit">Borrow Book</button>
+  </form>
+</div>
+<script>
+document.getElementById('borrowForm').addEventListener('submit', function(event){
+  event.preventDefault();
+
+  // Collect form data
+  var borrowData = {
+    bookTitle: document.getElementById('bookTitle').value,
+    authorName: document.getElementById('authorName').value,
+    isbn: document.getElementById('isbn').value,
+    memberId: document.getElementById('memberId').value
+  };
+
+  // Simple validation to ensure all fields are filled
+  if(borrowData.bookTitle && borrowData.authorName && borrowData.isbn && borrowData.memberId) {
+    // Here you would typically send the data to the server using AJAX or Fetch API
+    // Example using Fetch API (uncomment to use):
+    /*
+    fetch('your-server-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(borrowData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      alert('Book Borrowing Request Submitted!');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('An error occurred while submitting the borrowing request.');
+    });
+    */
+
+    // For demonstration, we'll just log the borrow data and show a success message
+    console.log('Borrow Data:', borrowData);
+    alert('Book Borrowing Request Submitted!');
+  } else {
+    // If any field is missing, alert the user
+    alert('Please fill in all the fields.');
+  }
+});
+</script>
+</body>
+</html>

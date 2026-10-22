@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book List - Library System</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .book-list-container { max-width: 800px; margin: auto; padding: 20px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+  th { background-color: #4CAF50; color: white; }
+  tr:nth-child(even) { background-color: #f2f2f2; }
+</style>
+</head>
+<body>
+<div class="book-list-container">
+  <h2>Existing Book List</h2>
+  <table id="bookListTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Book data will be inserted here dynamically -->
+    </tbody>
+  </table>
+</div>
+<script>
+// Example JavaScript code to insert book data into the table
+// This could be replaced with actual data fetching from a server
+var books = [
+  { title: '1984', author: 'George Orwell', isbn: '0451524934', genre: 'Fiction' },
+  { title: 'To Kill a Mockingbird', author: 'Harper Lee', isbn: '0446310786', genre: 'Fiction' },
+  // Add more book objects as needed
+];
+
+var bookListTableBody = document.getElementById('bookListTable').getElementsByTagName('tbody')[0];
+
+books.forEach(function(book) {
+  var row = bookListTableBody.insertRow();
+  row.insertCell(0).textContent = book.title;
+  row.insertCell(1).textContent = book.author;
+  row.insertCell(2).textContent = book.isbn;
+  row.insertCell(3).textContent = book.genre;
+});
+</script>
+</body>
+</html>

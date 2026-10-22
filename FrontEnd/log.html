@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Login</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .login-container { max-width: 300px; margin: auto; padding: 20px; }
+  input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  button { background-color: #4CAF50; color: white; }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Login to Library</h2>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+<script>
+document.getElementById('addBookForm').addEventListener('submit', function(event){
+  event.preventDefault();
+
+  // Collect form data
+  var bookData = {
+    title: document.getElementById('title').value,
+    author: document.getElementById('author').value,
+    isbn: document.getElementById('isbn').value,
+    genre: document.getElementById('genre').value
+  };
+
+  // Simple validation to check if all fields are filled
+  if(bookData.title && bookData.author && bookData.isbn && bookData.genre) {
+    // Here you would typically send the data to the server using AJAX or Fetch API
+    // Example using Fetch API (uncomment to use):
+    /*
+    fetch('your-server-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      alert('Book Added Successfully!');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('An error occurred while adding the book.');
+    });
+    */
+
+    // For demonstration, we'll just log the book data and show a success message
+    console.log('Book Data:', bookData);
+    alert('Book Added Successfully!');
+  } else {
+    // If any field is missing, alert the user
+    alert('Please fill in all the fields.');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Login - Library System</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .login-container { max-width: 300px; margin: auto; padding: 20px; }
+  input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  button { background-color: #4CAF50; color: white; }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Employee Login</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(event){
+  event.preventDefault();
+
+  // Collect login data
+  var loginData = {
+    username: document.getElementById('username').value,
+    password: document.getElementById('password').value
+  };
+
+  // Simple validation to ensure both fields are filled
+  if(loginData.username && loginData.password) {
+    // Here you would typically send the data to the server using AJAX or Fetch API
+    // Example using Fetch API (uncomment to use):
+    /*
+    fetch('your-server-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      // Redirect to the dashboard or another page
+      window.location.href = 'dashboard.html';
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Login failed. Please try again.');
+    });
+    */
+
+    // For demonstration, we'll just log the login data and show a success message
+    console.log('Login Data:', loginData);
+    alert('Login Successful!');
+  } else {
+    // If any field is missing, alert the user
+    alert('Please enter both username and password.');
+  }
+});
+</script>
+</body>
+</html>
